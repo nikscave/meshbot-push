@@ -5,3 +5,5 @@ MYNODE: "3663493700"
 MYNODES:
   - "3663493700"
 DBFILENAME: "./db/nodes.db"
+PUSH_APP_TOKEN: "Your Pushover.net API Token/Key"
+PUSH_USER_TOKEN: "Your Pushover.net User Key"
