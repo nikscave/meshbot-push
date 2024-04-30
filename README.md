@@ -132,12 +132,12 @@ python meshbot.py --port COM7
 
 You bot will be accessible through the meshtastic mesh network through the node name. DM the bot/node and issue any of the following commands:
 
-- #test : receive a test message
-- #weather : local weather report
-- #tides : tide info (dont forget to change the default town in the source)
-- #whois #xxxx : retrieve name and node info for a node based on last 4 chars of address
-- #bbs post !address message : post a messgae on the bbs for a given user at !address
-- #bbs get : retrieve your message(s) left by another user(s)
+- #test : receive a test message (as above meshbotpush description, I've removed what I dont use, so tweak as needed in the code)
+- ~~#weather : local weather report~~
+- ~~#tides : tide info (dont forget to change the default town in the source)~~
+- ~~#whois #xxxx : retrieve name and node info for a node based on last 4 chars of address~~
+- ~~#bbs post !address message : post a messgae on the bbs for a given user at !address~~
+- ~~#bbs get : retrieve your message(s) left by another user(s)~~
 
 ## Contributors
 
