@@ -14,6 +14,7 @@ meshbot.py: A message bot designed for Meshtastic, providing information from mo
 Author:
 - Andy
 - April 2024
+- MeshBotPush code and repeats added by NiksCave April 2024 (Needs work as only good for single user at a time but its working)
 
 MIT License
 
@@ -181,7 +182,12 @@ def message_listener(packet, interface):
         sender_id = packet["from"]
         logger.info(f"Message {packet['decoded']['text']} from {packet['from']}")
         logger.info(f"transmission count {transmission_count}")
-        if transmission_count < 16:
+        #logger.error(packet)
+        if (
+            transmission_count < 16
+            #and str(packet["to"]) == MYNODE
+            and any(node in str(packet["from"]) for node in MYNODES)
+        ):
             if "weather3425425435" in message:
                 transmission_count += 1
                 interface.sendText(weather_info, wantAck=True, destinationId=sender_id)
