@@ -63,6 +63,9 @@ MYNODE: "3663493700"
 MYNODES:
   - "3663493700"
 DBFILENAME: "./db/nodes.db"
+#new for push notifications
+PUSH_APP_TOKEN: "abcdefghijklmnopqrstuvwxyz"
+PUSH_USER_TOKEN: "abcde12345etc"
 ```
 
 Description
@@ -71,6 +74,31 @@ Description
 - MYNODE = The hw address of the node connected in int/number form. This is so the bot only responds to DMs
 - MYNODES = A list of nodes (in int/number form) that are permitted to interact with the bot
 - DBFILENAME = Configure which user database file to use by default
+- PUSH_APP_TOKEN =  Pushover.net app token
+- PUSH_USER_TOKEN = Pushover.net User Key
+
+## MeshBot_Push minor changes
+
+| Message received  | Action   | Example output |
+| :---------------- | :------------ | :------------- |
+| #test             |   Replies with current timestamp on device   | 📍 mm-dd HH:MM:SS |
+| #repeat 60        |   Repeats test message every 60 seconds   | 🟢 Repeat Starting then 🟢 mm-dd HH:MM:SS |
+| #repeat 3600      |  Repeats test message every hour   | as above |
+| #stop            |  Stops the repeat function   | 🔵 Repeat Stopped |
+| #push            |  Sends a mesh reply and push notification   | 🔔 mm-dd HH:MM:SS |
+
+Pushover is a very cheap push notification service which I've had for years, you can try it for 30 days for free then it's the price of a coffee for life. 
+Works on android, apple, desktops and has example code to trigger from most platforms.
+- [Pushover.Net](https://pushover.net)
+
+# Pushover is not needed to use this version but handy use case is being able to confirm that your inbound message has been received should the mesh not get back to you!!!
+
+Replace meshbot.py with MeshBotPush.py and the rest of the instructions are the same as the original author.
+Add your push tokens into the settings.yaml file.
+I've amended some of the message triggers in this version as I have no use for them and removed some superflous code. Tweak as necassery for your use case.
+cheers
+Nik
+
 
 ## Usage
 
