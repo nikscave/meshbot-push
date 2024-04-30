@@ -3,14 +3,15 @@
 ![Meshbot](./img/meshbot.png)
 
 MeshBot is an OpenSource Python program designed to run on computers with a connected Meshtastic device, allowing users to send and receive messages efficiently over a mesh network.
+Youtube of amends made for this version will be soon uploaded and URL shared here
 
 ## Features
 
-- Broadcast messages: Send text broadcasts to all devices on the mesh network.
-- Weather updates: Get real-time weather updates for a specified location.
-- Tides information: Receive tidal information for coastal areas.
-- Whois: Query one of two User databases mpowered247 or liamcottle
-- Simple BBS: IN PROGRESS, store and retrieve messages via the bot
+- ~~Broadcast messages: Send text broadcasts to all devices on the mesh network.~~
+- ~~Weather updates: Get real-time weather updates for a specified location.~~
+- ~~Tides information: Receive tidal information for coastal areas.~~
+- ~~Whois: Query one of two User databases mpowered247 or liamcottle~~
+- ~~Simple BBS: IN PROGRESS, store and retrieve messages via the bot~~
 - Push notifications with Pushover.net (can be run same time as a repeat test to confirm receipt via cell network)
 - Repeat messages based on one command, stop at any time you are in range
 
@@ -20,16 +21,17 @@ MeshBot is an OpenSource Python program designed to run on computers with a conn
 - Meshtastic Python library
 - Access to a Meshtastic device [Meshtastic](https://meshtastic.org)
 - Serial drivers for your meshtastic device, See [Installing Serial Drivers](https://meshtastic.org/docs/getting-started/serial-drivers/)
+- Pushover.net API access if using push notifications
 
 ## Installation
 
-1. Clone this repository to your local machine:
+1. Clone this repository to your local machine (or download the zip file and uncompress somewhere if not using git)
 
 ```
-git clone https://github.com/868meshbot/meshbot.git
+git clone https://github.com/nikscave/meshbot-push.git
 ```
 
-2. Navigate into the folder and setup a virtual environment
+2. Navigate into the folder and setup a virtual environment (if device is single purpose you can skip this and install in main environment)
 
 ```
 cd meshbot
@@ -38,7 +40,7 @@ python3 -m venv .venv
 
 ```
 
-3. Install the required dependencies:
+3. Install the required dependencies: (some are removed from the original as they caused errors on my Rasp Pi 3 install, refer to original fork as needed)
 
 ```
 pip install -r requirements.txt
@@ -89,13 +91,13 @@ Description
 | #stop            |  Stops the repeat function   | 🔵 Repeat Stopped |
 | #push            |  Sends a mesh reply and push notification   | 🔔 mm-dd HH:MM:SS |
 
-Pushover is a very cheap push notification service which I've had for years, you can try it for 30 days for free then it's the price of a coffee for life. 
+Pushover is a very cheap push notification service which I've used for years, you can try it for 30 days for free then it's the price of a coffee for life. 
 Works on android, apple, desktops and has example code to trigger from most platforms.
 - [Pushover.Net](https://pushover.net)
 
-# Pushover is not needed to use this version but handy use case is being able to confirm that your inbound message has been received should the mesh not get back to you!!!
+Pushover is not needed to use this version but handy use case is being able to confirm that your inbound message has been received should the mesh not get back to you!!!
 
-Replace meshbot.py with MeshBotPush.py and the rest of the instructions are the same as the original author.
+Replace **meshbot.py with MeshBotPush.py** and the rest of the instructions are the same as the original author.
 Add your push tokens into the settings.yaml file.
 I've amended some of the message triggers in this version as I have no use for them and removed some superflous code. Tweak as necassery for your use case.
 cheers
