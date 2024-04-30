@@ -11,6 +11,8 @@ MeshBot is an OpenSource Python program designed to run on computers with a conn
 - Tides information: Receive tidal information for coastal areas.
 - Whois: Query one of two User databases mpowered247 or liamcottle
 - Simple BBS: IN PROGRESS, store and retrieve messages via the bot
+- Push notifications with Pushover.net (can be run same time as a repeat test to confirm receipt via cell network)
+- Repeat messages based on one command, stop at any time you are in range
 
 ## Requirements
 
