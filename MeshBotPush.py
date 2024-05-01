@@ -192,13 +192,13 @@ def message_listener(packet, interface):
                 transmission_count += 1
                 interface.sendText(weather_info, wantAck=True, destinationId=sender_id)
             elif "#test" in message:
-                # transmission_count += 1 # remove as not needed
+                transmission_count += 1 
                 timeNow = datetime.datetime.now()
                 timeString = (timeNow.strftime("%d-%m %H:%M:%S"))
                 messageString = "📍 " + timeString
                 interface.sendText(messageString, wantAck=False, destinationId=sender_id)
             elif "#push" in message:
-                # transmission_count += 1 # remove as not needed
+                transmission_count += 1
                 timeNow = datetime.datetime.now()
                 timeString = (timeNow.strftime("%d-%m %H:%M:%S"))
                 messageString = "🔔 " + timeString
@@ -210,7 +210,8 @@ def message_listener(packet, interface):
                     try:
                         if isinstance(int(message_parts[1].strip()),int):
                             repeat_enabled = True
-                            repeat_seconds = max(int(message_parts[1].strip()),20)
+                            # 30 seconds minimum repeat time
+                            repeat_seconds = max(int(message_parts[1].strip()),30)
                             logger.info(message_parts[1].strip())
                             interface.sendText("🟢 Repeat Starting", wantAck=False, destinationId=sender_id)
                         else:
@@ -227,7 +228,7 @@ def message_listener(packet, interface):
                 repeat_enabled = False
                 repeat_seconds = 10
                 interface.sendText("🔵 Repeat Stopped", wantAck=False, destinationId=sender_id)
-            elif "#whois8789787897987 #" in message:
+            elif "#whois #" in message:
                 message_parts = message.split("#")
                 transmission_count += 1
                 if len(message_parts) > 1:
@@ -291,7 +292,7 @@ def message_listener(packet, interface):
                     whois_search.close_connection()
                 else:
                     pass
-            elif "#bbs7897879878" in message:
+            elif "#bbs" in message:
                 transmission_count += 1
                 message_parts = message.split()
                 if message_parts[1].lower() == "get":
