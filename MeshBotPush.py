@@ -182,7 +182,7 @@ def message_listener(packet, interface):
         sender_id = packet["from"]
         logger.info(f"Message {packet['decoded']['text']} from {packet['from']}")
         logger.info(f"transmission count {transmission_count}")
-        #logger.error(packet)
+        logger.error(packet)
         if (
             transmission_count < 16
             and str(packet["to"]) == MYNODE
