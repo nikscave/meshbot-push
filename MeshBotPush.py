@@ -213,10 +213,10 @@ def message_listener(packet, interface):
                             # 30 seconds minimum repeat time
                             repeat_seconds = max(int(message_parts[1].strip()),30)
                             logger.info(message_parts[1].strip())
-                            timeNow = datetime.datetime.now()
-                            timeString = (timeNow.strftime("%H:%M:%S"))
-                            messageString = "Repeat Started at " + timeString
-                            interface.sendText(messageString, wantAck=False, destinationId=sender_id)
+                            #timeNow = datetime.datetime.now()
+                            #timeString = (timeNow.strftime("%H:%M:%S"))
+                            #messageString = "Repeat Started at " + timeString
+                            #interface.sendText(messageString, wantAck=False, destinationId=sender_id)
                         else:
                             interface.sendText("🔴 invalid seconds value", wantAck=False, destinationId=sender_id)
                             logger.error(message_parts[1].strip())
@@ -229,7 +229,7 @@ def message_listener(packet, interface):
                     interface.sendText("🔴 Seconds missing", wantAck=False, destinationId=sender_id)
             elif "#stop" in message:
                 repeat_enabled = False
-                repeat_seconds = 10
+                repeat_seconds = 1
                 interface.sendText("🔵 Repeat Stopped", wantAck=False, destinationId=sender_id)
             elif "#whois #" in message:
                 message_parts = message.split("#")
@@ -361,7 +361,7 @@ def main():
     global interface
     repeat_enabled = False
     global repeat_seconds
-    repeat_seconds = 10
+    repeat_seconds = 1
     parser = argparse.ArgumentParser(description="Meshbot a bot for Meshtastic devices")
     parser.add_argument("--port", type=str, help="Specify the serial port to probe")
     parser.add_argument("--db", type=str, help="Specify DB: mpowered or liam")
