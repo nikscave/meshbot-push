@@ -197,6 +197,13 @@ def message_listener(packet, interface):
                 timeString = (timeNow.strftime("%d-%m %H:%M:%S"))
                 messageString = "📍 " + timeString
                 interface.sendText(messageString, wantAck=False, destinationId=sender_id)
+            elif "#pushonly" in message:
+                transmission_count += 1
+                timeNow = datetime.datetime.now()
+                timeString = (timeNow.strftime("%d-%m %H:%M:%S"))
+                messageString = "📌 " + timeString
+                #interface.sendText(messageString, wantAck=False, destinationId=sender_id)
+                send_push_notification(messageString)
             elif "#push" in message:
                 transmission_count += 1
                 timeNow = datetime.datetime.now()
