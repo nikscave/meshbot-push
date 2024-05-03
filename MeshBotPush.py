@@ -213,10 +213,10 @@ def message_listener(packet, interface):
                             # 30 seconds minimum repeat time
                             repeat_seconds = max(int(message_parts[1].strip()),30)
                             logger.info(message_parts[1].strip())
-                            #timeNow = datetime.datetime.now()
-                            #timeString = (timeNow.strftime("%H:%M:%S"))
-                            #messageString = "Repeat Started at " + timeString
-                            #interface.sendText(messageString, wantAck=False, destinationId=sender_id)
+                            timeNow = datetime.datetime.now()
+                            timeString = (timeNow.strftime("%H:%M:%S"))
+                            messageString = "Repeat Started at " + timeString
+                            interface.sendText(messageString, wantAck=False, destinationId=sender_id)
                         else:
                             interface.sendText("🔴 invalid seconds value", wantAck=False, destinationId=sender_id)
                             logger.error(message_parts[1].strip())
