@@ -100,7 +100,7 @@ Pushover is not needed to use this version but handy use case is being able to c
 
 Replace **meshbot.py with MeshBotPush.py** and the rest of the instructions are the same as the original author.
 Add your push tokens into the settings.yaml file.
-I've amended some of the message triggers in this version as I have no use for them and removed some superflous code. Tweak as necassery for your use case.
+I've amended some of the message triggers in this version as I have no use for them. Tweak as necassery for your use case.
 cheers
 Nik
 
